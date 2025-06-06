@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elogi - Xoài Sấy Cao Cấp | Thực Phẩm Tự Nhiên & Bổ Dưỡng</title>
+    <meta name="description" content="Xoài sấy Elogi cao cấp 100% tự nhiên, giàu vitamin C, không chất bảo quản. Đặt hàng online giao hàng toàn quốc.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif, 'Segoe UI', Tahoma, Geneva, Verdana;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .main {
+            margin: 0 auto;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #FFFAF0 0%, #FFF8DC 100%);
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 100px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .main-title {
+            font-size: 2.8rem;
+            font-weight: 400;
+            color: #FF8C00;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .main-title:hover {
+            transform: scale(1.05);
+            text-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #888;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+            transition: color 0.3s ease;
+        }
+
+        .subtitle:hover {
+            color: #666;
+        }
+
+        .features-main {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .feature-row {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            padding: 0 40px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease-out forwards;
+            transition: all 0.4s ease;
+            border-radius: 20px;
+            padding: 30px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-row::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 140, 0, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .feature-row:hover::before {
+            left: 100%;
+        }
+
+        .feature-row:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.15);
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .feature-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .feature-row:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .feature-row:nth-child(2) {
+            animation-delay: 0.4s;
+            flex-direction: row-reverse;
+        }
+
+        .feature-row:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .feature-row:hover .feature-icon {
+            transform: scale(1.1) rotate(360deg);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-row:hover .feature-icon::after {
+            transform: scale(1.3);
+            opacity: 0.3;
+        }
+
+        .feature-row:nth-child(1) .feature-icon {
+            background: linear-gradient(135deg, #ff9a56 0%, #ffad85 100%);
+            color: white;
+            margin-left: 200px;
+        }
+
+        .feature-row:nth-child(2) .feature-icon {
+            background: linear-gradient(135deg, #d4a574 0%, #e6c9a8 100%);
+            color: white;
+            margin-right: 200px;
+        }
+
+        .feature-row:nth-child(3) .feature-icon {
+            background: linear-gradient(135deg, #a67c5a 0%, #c19a76 100%);
+            color: white;
+            margin-left: 200px;
+        }
+
+        .feature-content {
+            flex: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-row:hover .feature-content {
+            transform: translateX(10px);
+        }
+
+        .feature-row:nth-child(2):hover .feature-content {
+            transform: translateX(-10px);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-icon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: inherit;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+            z-index: -1;
+        }
+
+        .feature-title {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-right: 10px;
+            color: #8B4513;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+
+        .feature-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #FF8C00, #ff9a56);
+            transition: width 0.3s ease;
+        }
+
+        .feature-row:hover .feature-title::after {
+            width: 100%;
+        }
+
+        .feature-title:hover {
+            color: #FF8C00;
+            transform: translateY(-2px);
+        }
+
+        .feature-description {
+            color:rgb(178, 87, 23);
+            font-size: 1rem;
+            line-height: 1.7;
+            max-width: 500px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-row:hover .feature-description {
+            color: rgb(150, 70, 15);
+            transform: translateY(-2px);
+        }
+
+        .product-image-placeholder {
+            width: 300px;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(255, 154, 86, 0.1) 0%, rgba(255, 173, 133, 0.2) 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff9a56;
+            font-size: 0.9rem;
+            border: 2px dashed #ff9a56;
+            flex-shrink: 0;
+            margin-left: auto;
+            transition: all 0.4s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 13px;
+            transition: transform 0.4s ease;
+        }
+
+        .product-image-placeholder:hover {
+            transform: scale(1.05) rotate(2deg);
+            border-color: #FF8C00;
+            box-shadow: 0 15px 40px rgba(255, 140, 0, 0.3);
+        }
+
+        .product-image-placeholder:hover img {
+            transform: scale(1.1);
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(196, 69, 105, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(196, 69, 105, 0.4);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .feature-icon:hover {
+            animation: pulse 0.6s ease-in-out;
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.2rem;
+            }
+
+            .feature-row {
+                flex-direction: column !important;
+                text-align: center;
+                gap: 25px;
+                padding: 20px;
+            }
+            
+            .feature-row:nth-child(1) .feature-icon,
+            .feature-row:nth-child(2) .feature-icon,
+            .feature-row:nth-child(3) .feature-icon {
+                margin: 0;
+            }
+            
+            .features-main {
+                gap: 40px;
+            }
+            
+            .product-image-placeholder {
+                width: 100%;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            .feature-row:hover .feature-content,
+            .feature-row:nth-child(2):hover .feature-content {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .reviews-sectio {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #FFFAF0 0%, #FFF8DC 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-heade {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-titl {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #FFA500, #FF8C00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-subtitl {
+            font-size: 1.3rem;
+            color: rgba(255, 165, 0, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .reviews-gri {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 70px;
+            margin-left: 140px;
+            margin-right: 140px;
+        }
+
+        .review-car {
+            background: white;
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .review-car::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .review-car:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.6);
+        }
+
+        .review-car:hover::before {
+            opacity: 1;
+        }
+
+        .review-heade {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .avata {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: url("img/nam.png");
+        background-size: cover;
+        background-position: center;
+        }
+
+        .review-car:hover .avata {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .customer-inf h3 {
+            color: #FF8C00;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .customer-rol {
+            color: rgba(255, 165, 0, 0.7);
+            font-size: 0.95rem;
+        }
+
+        .stars {
+            display: flex;
+            margin-bottom: 20px;
+            gap: 5px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .star {
+            font-size: 1.4rem;
+            color: #ffd700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease;
+        }
+
+        .review-car:hover .star {
+            animation: sparkle 0.6s ease-in-out;
+        }
+
+        .review-car:hover .star:nth-child(1) { animation-delay: 0s; }
+        .review-car:hover .star:nth-child(2) { animation-delay: 0.1s; }
+        .review-car:hover .star:nth-child(3) { animation-delay: 0.2s; }
+        .review-car:hover .star:nth-child(4) { animation-delay: 0.3s; }
+        .review-car:hover .star:nth-child(5) { animation-delay: 0.4s; }
+
+        @keyframes sparkle {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3) rotate(10deg); opacity: 0.8; }
+        }
+
+        .review-tex {
+            color: #333;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+            transition: color 0.3s ease;
+        }
+
+        .review-car:hover .review-tex {
+            color: #2c3e50;
+        }
+
+        .quote-mar {
+            font-size: 4rem;
+            color: rgba(255, 215, 0, 0.3);
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-family: serif;
+            transition: all 0.3s ease;
+        }
+
+        .review-car:hover .quote-mar {
+            color: rgba(255, 215, 0, 0.5);
+            transform: scale(1.1);
+        }
+
+        .stats-sectio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            margin-left: 140px;
+            margin-right: 140px;
+        }
+
+        .stat-car {
+            text-align: center;
+            background: linear-gradient(rgb(251, 241, 201));
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .stat-car:hover {
+            transform: scale(1.05) translateY(-5px);
+            background: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-numbe {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffd700;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-car:hover .stat-numbe {
+            transform: scale(1.1);
+        }
+
+        .stat-labe {
+            color: rgba(255, 165, 0, 0.8);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .section-titl {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .reviews-sectio {
+                padding: 40px 20px;
+            }
+            
+            .reviews-gri, .stats-sectio {
+                grid-template-columns: 1fr;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+
+            .review-car {
+                padding: 30px;
+            }
+        }
+
+        /* Loading animations */
+        .review-car {
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .review-car:nth-child(1) { animation-delay: 0.1s; }
+        .review-car:nth-child(2) { animation-delay: 0.2s; }
+        .review-car:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 20px rgba(255, 193, 7, 0.2);
+            align-items: center;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 30px rgba(255, 193, 7, 0.3);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #FF8C00;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 0 2px 4px rgba(255, 140, 0, 0.3);
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            border-radius: 50%;
+            border: 2px solid #FFD700;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        .nav-link {
+            color: #FF8C00;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            font-weight: bold; 
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: #FFD700;
+            text-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #FF8C00;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #FFF8DC 0%, #FFEBCD 50%, #FFE4B5 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23FFD700" opacity="0.2"/><circle cx="80" cy="60" r="3" fill="%23FFA500" opacity="0.15"/><circle cx="60" cy="20" r="1.5" fill="%23FF8C00" opacity="0.1"/></svg>');
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-20px) rotate(360deg); }
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero-text {
+            animation: slideInLeft 1s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #FF8C00;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(255, 140, 0, 0.3);
+        }
+
+        .hero-text .highlight {
+            color: #FFD700;
+            display: block;
+            font-size: 4rem;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 6px rgba(255, 215, 0, 0.4);
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            color: #8B4513;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 165, 0, 0.4);
+            text-decoration: none;
+            display: inline-block;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 165, 0, 0.5);
+            background: linear-gradient(45deg, #FFA500, #FFD700);
+        }
+
+        .hero-image {
+            text-align: center;
+            animation: slideInRight 1s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .product-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            filter: drop-shadow(0 20px 40px rgba(255, 140, 0, 0.3));
+            animation: productFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes productFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #FFFAF0 0%, #FFF8DC 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            color: #FF8C00;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(255, 140, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: #8B4513;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #ffffff 0%, #FFF8DC 100%);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.2);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(255, 140, 0, 0.3);
+            border-color: rgba(255, 215, 0, 0.4);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: #FF8C00;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: #8B4513;
+            line-height: 1.6;
+        }
+
+        /* Product Info Section */
+        .product-info {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e8f5e8 50%, #f0f8f0 100%);
+            position: relative;
+        }
+
+        .product-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="50" cy="50" r="3" fill="rgba(107,207,127,0.1)" opacity="0.5"><animate attributeName="r" values="3;5;3" dur="4s" repeatCount="indefinite"/></circle></svg>') repeat;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        /* Nutrition Section */
+        .nutrition {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #FFFAF0 0%, #FFF8DC 100%);
+        }
+
+        .nutrition-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .nutrition-text h2 {
+            font-size: 2.5rem;
+            color: #FF8C00;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(255, 140, 0, 0.2);
+        }
+
+        .nutrition-list {
+            list-style: none;
+        }
+
+        .nutrition-list li {
+            background: white;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(255, 140, 0, 0.2);
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            border-left: 4px solid #FFD700;
+        }
+
+        .nutrition-list li:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(255, 140, 0, 0.3);
+        }
+
+        .nutrition-list li::before {
+            content: '✓';
+            color: #FFD700;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .nutrition-chart {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(255, 140, 0, 0.2);
+            border: 2px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .chart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            padding: 15px 0;
+            border-bottom: 1px solid #FFE4B5;
+        }
+
+        .chart-item:last-child {
+            border-bottom: none;
+        }
+
+        .chart-bar {
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+            height: 8px;
+            border-radius: 4px;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .chart-bar:hover {
+            height: 12px;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #FFA500 0%, #FF8C00 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reviews::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.05)"><animate attributeName="r" values="2;4;2" dur="4s" repeatCount="indefinite"/></circle></svg>') repeat;
+            pointer-events: none;
+        }
+
+        .reviews .section-title h2 {
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .reviews .section-title p {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .review-card {
+            background: linear-gradient(145deg, #ffffff, #FFF8DC);
+            border-radius: 25px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .review-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+            border-color: rgba(255, 215, 0, 0.5);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            box-shadow: 0 8px 20px rgba(255, 165, 0, 0.4);
+        }
+
+        .avatar-icon {
+            font-size: 2rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
+        .reviewer-info h4 {
+            color: #FF8C00;
+            font-size: 1.3rem;
+            margin: 0 0 0.5rem 0;
+            font-weight: 700;
+        }
+
+        .reviewer-info p {
+            color: #8B4513;
+            margin: 0;
+        }
+
+        .review-content blockquote {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #444;
+            margin: 0 0 1.5rem 0;
+            font-style: italic;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .review-content blockquote::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 3rem;
+            color: #FFD700;
+            font-family: Georgia, serif;
+        }
+
+        .stars {
+            display: flex;
+            gap: 0.3rem;
+        }
+
+        .star {
+            color: #FFD700;
+            font-size: 1.2rem;
+            text-shadow: 0 1px 2px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 35px 0;
+            background: linear-gradient(135deg,rgb(252, 241, 197) 0%,rgb(252, 221, 175) 50%,rgb(251, 208, 136) 100%);
+            color: #FF8C00
+        }
+
+        .contact .section-title h2 {
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 2rem;
+            background: #FFE4B5;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .contact-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #FF8C00
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="0,0 100,0 100,20 0,40" fill="white" opacity="0.05"/></svg>');
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            z-index: 2;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            z-index: 2;
+            position: relative;
+            opacity: 0.9;
+        }
+
+        .cta-button-white {
+            background: white;
+            color: #FF8C00;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            text-decoration: none;
+            display: inline-block;
+            z-index: 2;
+            position: relative;
+        }
+
+        .cta-button-white:hover {
+            transform: translateY(-3px);
+            background: #FFF8DC;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+        }
+
+        .chta-button {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: white;
+            padding: 10px 10px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 165, 0, 0.4);
+            text-decoration: none;
+            display: inline-block;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .chta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 165, 0, 0.5);
+            background: linear-gradient(45deg, #FFA500, #FFD700);
+        }
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
+            color: white;
+            padding: 10px 0 15px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p, .footer-section li {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #FFD700;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Loading Animation */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .slide-up {
+            transform: translateY(50px);
+            opacity: 0;
+            animation: slideUp 1s ease-out forwards;
+        }
+
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 2px 10px rgba(255, 140, 0, 0.2);
+                gap: 30px;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .hero-content,
+            .nutrition-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text .highlight {
+                font-size: 3rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+                transition: all 0.3s ease;
+            }
+
+            .section-title:hover {
+            transform: scale(1.05);
+            text-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+        }
+            .features-grid,
+            .reviews-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text .highlight {
+                font-size: 2.5rem;
+            }
+
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+            .chta-button {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 165, 0, 0.4);
+        }
+
+        .scroll-top:hover {
+            background: linear-gradient(45deg, #FFA500, #FFD700);
+            transform: translateY(-3px);
+        }
+
+        .scroll-top.show {
+            display: flex;
+        }
+        .product-image-placeholder {
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+            margin-left: 200px;
+        }
+        .product-image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Giữ tỉ lệ và cắt bớt nếu cần */
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 40px; /* nếu muốn bo góc nhẹ */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <a href="#" class="logo">
+                    <img src="img/logo1.jpg" alt="Elogi">
+                    ELOGI
+                </a>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#home" class="nav-link">Trang Chủ</a></li>
+                    <li><a href="#main" class="nav-link">Sản Phẩm</a></li>
+                    <li><a href="#nutrition" class="nav-link">Dinh Dưỡng</a></li>
+                    <li><a href="#reviews-sectio" class="nav-link">Đánh Giá</a></li>
+                    <li><a href="#contact" class="nav-link">Liên Hệ</a></li>
+                    <li><a href="https://elogi.vn/" class="chta-button">Đặt Hàng Ngay</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>
+                        <span class="highlight">ELOGI</span>
+                        Xoài Sấy Cao Cấp
+                    </h1>
+                    <p>Thưởng thức hương vị xoài tươi ngọt tự nhiên, giữ trọn dinh dưỡng trong từng miếng xoài sấy thơm ngon. Sản phẩm hoàn toàn tự nhiên, không chất bảo quản, mang đến cho bạn trải nghiệm ăn uống lành mạnh và tiện lợi.</p>
+                    <a href="https://elogi.vn/" class="cta-button">Đặt Hàng Ngay</a>
+                </div>
+                <div class="hero-image">
+                    <img src="img/xoaisay_tachnen.png" alt="Elogi Xoài Sấy" class="product-image">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="main" id="main">
+        <div class="header">
+            <h1 class="main-title">Về Sản Phẩm</h1>
+            <p class="subtitle">Xoài sấy chất lượng cao được chế biến đặc biệt cho trẻ em</p>
+        </div>
+
+        <div class="features-main">
+            <div class="feature-row">
+                <div class="feature-icon">🌿</div>
+                <div class="feature-content">
+                    <h3 class="feature-title">100% Tự Nhiên</h3>
+                    <p class="feature-description">
+                        Được thu hoạch từ những tỏi yến tự nhiên tại các hang động 
+                        danh tiếng
+                    </p>
+                </div>
+            </div>
+
+            <div class="feature-row">
+                <div class="feature-icon">👶</div>
+                <div class="feature-content">
+                    <h3 class="feature-title">An Toàn Cho Trẻ Em</h3>
+                    <p class="feature-description">
+                        Công thức đặc biệt phù hợp với hệ tiêu hóa nhạy cảm của trẻ 
+                        nhỏ
+                    </p>
+                </div>
+                <div class="product-image-placeholder">
+                    <img src="img/xoaisay1.jpg">
+                </div>
+            </div>
+
+            <div class="feature-row">
+                <div class="feature-icon">🧠</div>
+                <div class="feature-content">
+                    <h3 class="feature-title">Phát Triển Trí Tuệ</h3>
+                    <p class="feature-description">
+                        Giàu protein và amino acid thiết yếu cho sự phát triển não bộ
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tại Sao Chọn Elogi?</h2>
+                <p>Những ưu điểm vượt trội khiến khách hàng tin tưởng lựa chọn</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🥭</span>
+                    <h3>100% Tự Nhiên</h3>
+                    <p>Được làm từ xoài tươi cao cấp, không chất bảo quản, không phẩm màu, giữ nguyên hương vị tự nhiên của xoài.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">⚡</span>
+                    <h3>Giàu Dinh Dưỡng</h3>
+                    <p>Cung cấp vitamin C, chất xơ, kali và các chất chống oxy hóa thiết yếu cho cơ thể.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🎯</span>
+                    <h3>Tiện Lợi</h3>
+                    <p>Dễ dàng mang theo mọi lúc mọi nơi, là lựa chọn hoàn hảo cho bữa ăn nhẹ lành mạnh.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nutrition Section -->
+    <section class="nutrition" id="nutrition">
+        <div class="container">
+            <div class="nutrition-content">
+                <div class="nutrition-text slide-up">
+                    <h2>Giá Trị Dinh Dưỡng</h2>
+                    <p style="margin-bottom: 30px; color: #8B4513; font-size: 1.1rem;">Mỗi gói 300g xoài sấy Elogi cung cấp:</p>
+                    <ul class="nutrition-list">
+                        <li>Vitamin C: Tăng cường hệ miễn dịch</li>
+                        <li>Chất xơ: Hỗ trợ tiêu hóa tốt</li>
+                        <li>Kali: Tốt cho tim mạch</li>
+                        <li>Beta-carotene: Bảo vệ mắt</li>
+                        <li>Chất chống oxy hóa: Chống lão hóa</li>
+                    </ul>
+                </div>
+                <div class="nutrition-chart fade-in">
+                    <h3 style="color:#FF8C00; margin-bottom: 30px; text-align: center;">Thành Phần Dinh Dưỡng (100g)</h3>
+                    <div class="chart-item">
+                        <span>Calories</span>
+                        <span style="font-weight: bold; color: #FF8C00">320 kcal</span>
+                    </div>
+                    <div class="chart-bar" style="width: 80%;"></div>
+                    
+                    <div class="chart-item">
+                        <span>Carbohydrate</span>
+                        <span style="font-weight: bold; color: #FF8C00">78g</span>
+                    </div>
+                    <div class="chart-bar" style="width: 85%;"></div>
+                    
+                    <div class="chart-item">
+                        <span>Chất xơ</span>
+                        <span style="font-weight: bold; color: #FF8C00">7g</span>
+                    </div>
+                    <div class="chart-bar" style="width: 60%;"></div>
+                    
+                    <div class="chart-item">
+                        <span>Vitamin C</span>
+                        <span style="font-weight: bold; color: #FF8C00">36mg</span>
+                    </div>
+                    <div class="chart-bar" style="width: 90%;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Đánh giá khách hàng-->
+    <section class="reviews-sectio" id="reviews-sectio">
+        <div class="section-heade">
+            <h2 class="section-titl">Khách Hàng Nói Gì</h2>
+            <p class="section-subtitl">Hàng nghìn khách hàng đã tin tưởng và hài lòng với dịch vụ của chúng tôi</p>
+        </div>
+
+        <div class="reviews-gri">
+            <div class="review-car">
+                <div class="quote-mar">"</div>
+                <div class="review-heade">
+                    <div class="avata"></div>
+                    <div class="customer-inf">
+                        <h3>Anh Nguyễn</h3>
+                        <p class="customer-rol">CEO Startup Tech</p>
+                    </div>
+                </div>
+                <div class="stars">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <p class="review-tex">Dịch vụ tuyệt vời! Đội ngũ chuyên nghiệp, tận tâm và luôn lắng nghe khách hàng. Tôi đã hợp tác với họ được 2 năm và chưa bao giờ thất vọng.</p>
+            </div>
+
+            <div class="review-car">
+                <div class="quote-mar">"</div>
+                <div class="review-heade">
+                    <div class="avata"></div>
+                    <div class="customer-inf">
+                        <h3>Minh Thư</h3>
+                        <p class="customer-rol">Giám đốc Marketing</p>
+                    </div>
+                </div>
+                <div class="stars">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <p class="review-tex">Chất lượng sản phẩm vượt trội, giao hàng nhanh chóng. Dịch vụ chăm sóc khách hàng 24/7 rất ấn tượng. Chắc chắn sẽ giới thiệu cho bạn bè!</p>
+            </div>
+
+            <div class="review-car">
+                <div class="quote-mar">"</div>
+                <div class="review-heade">
+                    <div class="avata"></div>
+                    <div class="customer-inf">
+                        <h3>Quang Huy</h3>
+                        <p class="customer-rol">Chủ cửa hàng</p>
+                    </div>
+                </div>
+                <div class="stars">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <p class="review-tex">Từ khi sử dụng dịch vụ này, doanh thu của tôi đã tăng 300%. Hỗ trợ kỹ thuật rất tốt, giải quyết vấn đề nhanh gọn.</p>
+            </div>
+        </div>
+
+        <div class="stats-sectio">
+            <div class="stat-car">
+                <div class="stat-numbe">5000+</div>
+                <div class="stat-labe">Khách hàng hài lòng</div>
+            </div>
+            <div class="stat-car">
+                <div class="stat-numbe">4.9/5</div>
+                <div class="stat-labe">Đánh giá trung bình</div>
+            </div>
+            <div class="stat-car">
+                <div class="stat-numbe">98%</div>
+                <div class="stat-labe">Tỷ lệ giữ chân</div>
+            </div>
+            <div class="stat-car">
+                <div class="stat-numbe">24/7</div>
+                <div class="stat-labe">Hỗ trợ khách hàng</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: white; margin-bottom: 3rem;">LIÊN HỆ ĐẶT HÀNG</h2>
+            <div class="contact-grid">
+                <div class="contact-item animate-fadeInUp">
+                    <h4>📞 Số điện thoại</h4>
+                    <p style="font-size: 1.1rem; font-weight: bold;">1900 6789</p>
+                </div>
+                <div class="contact-item animate-fadeInUp">
+                    <h4>📧 Email</h4>
+                    <p style="font-size: 1.1rem; font-weight: bold;">info@emcgroup.com.vn</p>
+                </div>
+                <div class="contact-item animate-fadeInUp">
+                    <h4>📍 Trụ sở chính</h4>
+                    <p style="font-size: 1.0rem; font-weight: bold;">Tòa nhà EMC, Số 12 Duy Tân, Cầu Giấy, Hà Nội</p>                
+                </div>
+                <div class="contact-item animate-fadeInUp">
+                    <h4>🌐 Website</h4>
+                    <p style="font-size: 1.1rem; font-weight: bold;">https://elogi.vn/</p>
+                    <p>Đặt hàng online</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Elogi. Tất cả quyền được bảo lưu. Sản phẩm chất lượng cao - Uy tín hàng đầu</p>
+        </div>
+    </footer>
+
+    <script>
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeInUp');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.product-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll animations
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .slide-up').forEach(el => {
+            scrollObserver.observe(el);
+        });
+
+        // Add hover effect to feature cards
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(-10px) scale(1)';
+            });
+        });
+
+        // Add click effect to buttons
+        document.querySelectorAll('.cta-button, .cta-button-white').forEach(button => {
+            button.addEventListener('click', function(e) {
+                let ripple = document.createElement('span');
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255,255,255,0.6)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                ripple.style.left = (e.offsetX - 10) + 'px';
+                ripple.style.top = (e.offsetY - 10) + 'px';
+                ripple.style.width = ripple.style.height = '20px';
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add CSS for ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
