@@ -68,7 +68,7 @@
         .feature-row {
             display: flex;
             align-items: center;
-            gap: 50px;
+            gap: 10px;
             padding: 0 40px;
             opacity: 0;
             transform: translateY(50px);
@@ -115,6 +115,20 @@
             font-size: 2rem;
             flex-shrink: 0;
             transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-icon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: inherit;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+            z-index: -1;
         }
 
         .feature-row:nth-child(1) {
@@ -141,15 +155,16 @@
         }
 
         .feature-row:nth-child(1) .feature-icon {
-            background: linear-gradient(135deg, #ff9a56 0%, #ffad85 100%);
+            background: linear-gradient(135deg, #f8bd96 0%, #ffad85 100%);
             color: white;
             margin-left: 200px;
         }
 
         .feature-row:nth-child(2) .feature-icon {
-            background: linear-gradient(135deg, #d4a574 0%, #e6c9a8 100%);
+            background: linear-gradient(135deg, #d9c1a7 0%, #e6c9a8 100%);
             color: white;
-            margin-right: 200px;
+            margin-right: 250px;
+            margin-left: 200px;
         }
 
         .feature-row:nth-child(3) .feature-icon {
@@ -161,6 +176,7 @@
         .feature-content {
             flex: 1;
             transition: transform 0.3s ease;
+            margin-left: 180px;
         }
 
         .feature-row:hover .feature-content {
@@ -171,36 +187,10 @@
             transform: translateX(-10px);
         }
 
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            flex-shrink: 0;
-            transition: all 0.4s ease;
-            position: relative;
-            z-index: 2;
-        }
-
-        .feature-icon::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: inherit;
-            transform: scale(0);
-            transition: transform 0.3s ease;
-            z-index: -1;
-        }
-
         .feature-title {
             font-size: 1.6rem;
             font-weight: 500;
-            margin-right: 10px;
+            margin-right: 1px;
             color: #8B4513;
             margin-bottom: 15px;
             transition: all 0.3s ease;
@@ -886,7 +876,21 @@
         .feature-icon {
             font-size: 3rem;
             margin-bottom: 20px;
-            display: block;;
+            display: block;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-icon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: inherit;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+            z-index: -1;
         }
 
         .feature-card h3 {
@@ -1433,6 +1437,36 @@
             display: block;
             border-radius: 40px; /* nếu muốn bo góc nhẹ */
         }
+        
+        .feature-icon {
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-bg {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 100px;
+            height: 100px;
+            background: #ffb97a;
+            opacity: 0.3;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            transition: transform 0.6s cubic-bezier(.68,-0.55,.27,1.55);
+            overflow: hidden;
+        }
+        .feature-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            opacity: 0.7;
+        }
+        .feature-bg.rotate {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
     </style>
 </head>
 <body>
@@ -1467,8 +1501,7 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>
-                        <span class="highlight">ELOGI</span>
-                        Xoài Sấy Cao Cấp
+                        <span class="highlight">Xoài Sấy Cao Cấp</span>
                     </h1>
                     <p>Thưởng thức hương vị xoài tươi ngọt tự nhiên, giữ trọn dinh dưỡng trong từng miếng xoài sấy thơm ngon. Sản phẩm hoàn toàn tự nhiên, không chất bảo quản, mang đến cho bạn trải nghiệm ăn uống lành mạnh và tiện lợi.</p>
                     <a href="https://elogi.vn/" class="cta-button">Đặt Hàng Ngay</a>
@@ -1488,7 +1521,9 @@
 
         <div class="features-main">
             <div class="feature-row">
-                <div class="feature-icon">🌿</div>
+                <div class="feature-icon">
+                    <div class="feature-bg"><img src="img/xoaisaydeo.png" alt="Bóng" /></div>
+                </div>
                 <div class="feature-content">
                     <h3 class="feature-title">100% Tự Nhiên</h3>
                     <p class="feature-description">
@@ -1499,7 +1534,9 @@
             </div>
 
             <div class="feature-row">
-                <div class="feature-icon">👶</div>
+                <div class="feature-icon">
+                    <div class="feature-bg"><img src="img/xoaisaydeo.png" alt="Bóng" /></div>
+                </div>
                 <div class="feature-content">
                     <h3 class="feature-title">An Toàn Cho Trẻ Em</h3>
                     <p class="feature-description">
@@ -1507,13 +1544,12 @@
                         nhỏ
                     </p>
                 </div>
-                <div class="product-image-placeholder">
-                    <img src="img/xoaisay1.jpg">
-                </div>
             </div>
 
             <div class="feature-row">
-                <div class="feature-icon">🧠</div>
+                <div class="feature-icon">
+                    <div class="feature-bg"><img src="img/xoaisaydeo.png" alt="Bóng" /></div>
+                </div>
                 <div class="feature-content">
                     <h3 class="feature-title">Phát Triển Trí Tuệ</h3>
                     <p class="feature-description">
@@ -1685,7 +1721,7 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <h2 class="section-title" style="color: white; margin-bottom: 3rem;">LIÊN HỆ ĐẶT HÀNG</h2>
+            <h2 class="section-title" style="color: #FF8C00; margin-bottom: 3rem;">LIÊN HỆ ĐẶT HÀNG</h2>
             <div class="contact-grid">
                 <div class="contact-item animate-fadeInUp">
                     <h4>📞 Số điện thoại</h4>
@@ -1801,6 +1837,17 @@
             }
         `;
         document.head.appendChild(style);
+
+        // Add click effect to feature icons
+        document.querySelectorAll('.feature-bg').forEach(bg => {
+            bg.addEventListener('click', function(e) {
+                e.stopPropagation(); // Không lan ra ngoài
+                this.classList.add('rotate');
+                setTimeout(() => {
+                    this.classList.remove('rotate');
+                }, 600); // Thời gian trùng với transition
+            });
+        });
     </script>
 </body>
 </html>
